@@ -1,24 +1,30 @@
-# automatic-number-plate-recognition-python-yolov8
+# Real-Time Car License Plate Recognition with YOLOv8l
 
-<p align="center">
-<a href="https://www.youtube.com/watch?v=fyJB1t0o0ms">
-    <img width="600" src="https://utils-computervisiondeveloper.s3.amazonaws.com/thumbnails/with_play_button/anpr_yolo2.jpg" alt="Watch the video">
-    </br>Watch on YouTube: Automatic number plate recognition with Python, Yolov8 and EasyOCR !
-</a>
-</p>
+## Introduction
 
-## data
+This project focuses on real-time car license plate recognition using the YOLOv8l model. This sophisticated system utilizes computer vision techniques to identify and process license plates on moving vehicles in real-time. The project not only detects license plates but also associates them with their respective vehicles. It opens up possibilities for applications such as smart parking systems, automated access control, and traffic management.
 
-The video I used in this tutorial can be downloaded [here](https://drive.google.com/file/d/1YmHTElM6rh5uBpvaoUYpYTHK2odJkoM6/view?usp=drive_link).
+## Data Source
 
-## models
+The video used for training and testing the license plate recognition model can be accessed [here](https://www.youtube.com/watch?v=aMgkf_xslQE&t=6s&ab_channel=ExoticCarspotters).
 
-A Yolov8 pretrained model was used to detect vehicles.
+## Models and Training
 
-A licensed plate detector was used to detect license plates. The model was trained with Yolov8 using [this dataset](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4) and following this [step by step tutorial on how to train an object detector with Yolov8 on your custom data](https://github.com/computervisioneng/train-yolov8-custom-dataset-step-by-step-guide). 
+The core of this project is the YOLOv8l license plate detector model. The model was trained using the YOLOv8 framework, leveraging a carefully curated dataset available [here](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4). Due to hardware limitations (lack of a powerful GPU), the training was conducted in Google Colab, a cloud-based environment. The best.pt weights, representing the trained model, were subsequently downloaded and integrated into the project.
 
-The trained model is available in my [Patreon](https://www.patreon.com/ComputerVisionEngineer).
+To ensure accurate license plate recognition, the system employs a sorting algorithm that assigns a unique identifier to each detected vehicle. The system also utilizes custom functions, such as `get_car` and `read_license_plate`, in conjunction with the EasyOCR library to read and correctly associate the license plate text with the respective vehicle. It's important to note that the license plate detector was trained on a relatively small dataset for a limited number of epochs (50) due to computational constraints. This limitation may affect its performance under certain conditions.
 
-## dependencies
+## Results
 
-The sort module needs to be downloaded from [this repository](https://github.com/abewley/sort) as mentioned in the [video](https://youtu.be/fyJB1t0o0ms?t=1120).
+While the video used for testing could not be uploaded due to performance issues on the author's laptop, a screenshot of real-time plate recognition is provided below for reference:
+
+![Screenshot](https://github.com/AbzalAidakhmetov/Real_Time_Car_License_Plate_Recognition_YOLOv8l/assets/99760649/e72bf031-87ad-487a-b5be-9278a2cabd8d)
+
+Additionally, the project includes a real-time car counting feature, the repository for which can be found [here](https://github.com/AbzalAidakhmetov/Project_Car_Counter_Yolo.git). When combined, these components can be utilized to create intelligent parking systems capable of automatically and accurately counting the number of vehicles entering and exiting parking facilities while recording their license plate information.
+
+## Dependencies
+
+The following modules were utilized as dependencies in this project:
+
+- The `sort` module was sourced from [this repository](https://github.com/abewley/sort).
+- The `util` module was obtained from [this repository](https://github.com/computervisioneng/object-detection-course).
